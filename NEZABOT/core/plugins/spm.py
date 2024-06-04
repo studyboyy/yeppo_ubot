@@ -5,8 +5,9 @@ async def spam_cmd(client, message):
     reply = message.reply_to_message
     # msg = await message.reply("sedang diproses", quote=False)
     if reply:
-        await message.delete()
+        
         try:
+            await message.delete()
             count_message = int(message.command[1])
             for i in range(count_message):
                 await reply.copy(message.chat.id)
