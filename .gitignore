@@ -1,0 +1,6 @@
+venv/
+.vev
+__pycache__/
+downloads/
+*.session
+*.bak

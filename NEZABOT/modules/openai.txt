@@ -1,0 +1,42 @@
+from NEZABOT import *
+
+__MODULE__ = "openai"
+__HELP__ = f"""
+<b>『 bantuan untuk openai 』</b>
+
+  <b>• perintah:</b> <code>{PREFIX[0]}ai</code> or <code>{PREFIX[0]}ask</code>  [query]
+  <b>• penjelasan:</b> untuk mengajukan pertanyaan ke chatgpt
+
+  <b>• perintah:</b> <code>{PREFIX[0]}dalle</code> or <code>{PREFIX[0]}photo</code> [query]
+  <b>• penjelasan:</b> untuk membuat sebuah photo
+
+  <b>• perintah:</b> <code>{PREFIX[0]}stt</code> [reply voice note]
+  <b>• penjelasan:</b> untuk merubah pesan suara ke text
+  
+  <b>• perintah:</b> <code>{PREFIX[0]}imgai</code></code>
+  <b>• penjelasan:</b> untuk membuat gambar membuat gambar menggunakan open ai
+"""
+
+
+@CB.UBOT("ai|ask", sudo=False)
+async def _(client, message):
+    await ai_cmd(client, message)
+
+
+@CB.UBOT("dalle|photo", sudo=False)
+async def _(client, message):
+    await dalle_cmd(client, message)
+
+
+@CB.UBOT("stt", sudo=False)
+async def _(client, message):
+    await stt_cmd(client, message)
+
+
+@CB.UBOT("imgai", sudo=False)
+async def _(client, message):
+    await imgai_cmd(client, message)
+
+@CB.UBOT("filterai", sudo=False)
+async def _(client, message):
+    await process_image(client, message)
