@@ -3,9 +3,8 @@ import asyncio
 
 async def spam_cmd(client, message):
     reply = message.reply_to_message
-    msg = await message.reply("sedang diproses", quote=False)
+    # msg = await message.reply("sedang diproses", quote=False)
     await message.delete()
-    await msg.delete()
     if reply:
         
         try:
@@ -15,10 +14,10 @@ async def spam_cmd(client, message):
                 await reply.copy(message.chat.id)
                 await asyncio.sleep(0.1)
         except Exception as error:
-            return await msg.edit(str(error))
+            return await message.edit(str(error))
     else:
         if len(message.command) < 2:
-            return await msg.edit(
+            return await message.edit(
                 "silahkan ketik <code>.help spam</code> untuk melihat cara menggunakan perintah ini"
             )
         else:
@@ -29,21 +28,19 @@ async def spam_cmd(client, message):
                     await asyncio.sleep(0.1)
             except Exception as error:
                 return await msg.edit(str(error))
-    await msg.delete()
     
 
 
 async def dspam_cmd(client, message):
     reply = message.reply_to_message
-    msg = await message.reply("sedang diproses", quote=False)
-    await msg.delete()
+    # msg = await message.reply("sedang diproses", quote=False)
     await message.delete()
     if reply:
         try:
             count_message = int(message.command[1])
             count_delay = int(message.command[2])
         except Exception as error:
-            return await msg.edit(str(error))
+            return await message.edit(str(error))
         for i in range(count_message):
             try:
                 await reply.copy(message.chat.id)
@@ -52,7 +49,7 @@ async def dspam_cmd(client, message):
                 pass
     else:
         if len(message.command) < 4:
-            return await msg.edit(
+            return await message.edit(
                 "silahkan ketik <code>.help spam</code> untuk melihat cara menggunakan perintah ini"
             )
         else:
