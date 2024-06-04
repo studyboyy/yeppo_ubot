@@ -1,6 +1,6 @@
 from motor.motor_asyncio import AsyncIOMotorClient
 
-from NEZABOT.config import mongo_clientURL
+from NEZABOT.config import MONGO_URL
 
 mongo_client = AsyncIOMotorClient(MONGO_URL)
 mongodb = mongo_client.ilauserbot
