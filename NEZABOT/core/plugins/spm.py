@@ -3,11 +3,12 @@ import asyncio
 
 async def spam_cmd(client, message):
     reply = message.reply_to_message
-    # msg = await message.reply("sedang diproses", quote=False)
+    msg = await message.reply("sedang diproses", quote=False)
+    await message.delete()
     if reply:
         
         try:
-            await message.delete()
+            
             count_message = int(message.command[1])
             for i in range(count_message):
                 await reply.copy(message.chat.id)
@@ -27,7 +28,7 @@ async def spam_cmd(client, message):
                     await asyncio.sleep(0.1)
             except Exception as error:
                 return await msg.edit(str(error))
-    # await msg.delete()
+    await msg.delete()
     
 
 
