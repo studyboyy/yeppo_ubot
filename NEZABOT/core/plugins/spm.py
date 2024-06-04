@@ -3,7 +3,7 @@ import asyncio
 
 async def spam_cmd(client, message):
     reply = message.reply_to_message
-    msg = await message.reply()
+    # msg = await message.reply()
     await message.delete()
     if reply:
         
@@ -14,10 +14,10 @@ async def spam_cmd(client, message):
                 await reply.copy(message.chat.id)
                 await asyncio.sleep(0.1)
         except Exception as error:
-            return await msg.edit(str(error))
+            return await message.reply(str(error))
     else:
         if len(message.command) < 2:
-            return await msg.edit(
+            return await message.reply(
                 "silahkan ketik <code>.help spam</code> untuk melihat cara menggunakan perintah ini"
             )
         else:
