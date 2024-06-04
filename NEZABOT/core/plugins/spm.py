@@ -3,9 +3,9 @@ import asyncio
 
 async def spam_cmd(client, message):
     reply = message.reply_to_message
-    # msg = await message.reply("sedang diproses", quote=False)
+    msg = await message.reply("sedang diproses", quote=False)
     await message.delete()
-    
+    await msg.delete()
     if reply:
         
         try:
@@ -29,13 +29,14 @@ async def spam_cmd(client, message):
                     await asyncio.sleep(0.1)
             except Exception as error:
                 return await msg.edit(str(error))
-    # await msg.delete()
+    await msg.delete()
     
 
 
 async def dspam_cmd(client, message):
     reply = message.reply_to_message
-    # msg = await message.reply("sedang diproses", quote=False)
+    msg = await message.reply("sedang diproses", quote=False)
+    await msg.delete()
     await message.delete()
     if reply:
         try:
@@ -66,5 +67,5 @@ async def dspam_cmd(client, message):
                     await asyncio.sleep(count_delay)
                 except:
                     pass
-    # await msg.delete()
+    
     
