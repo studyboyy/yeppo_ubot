@@ -14,10 +14,10 @@ async def spam_cmd(client, message):
                 await reply.copy(message.chat.id)
                 await asyncio.sleep(0.1)
         except Exception as error:
-            return await message.edit(str(error))
+            return await message.replay.edit(str(error))
     else:
         if len(message.command) < 2:
-            return await message.edit(
+            return await message.replay.edit(
                 "silahkan ketik <code>.help spam</code> untuk melihat cara menggunakan perintah ini"
             )
         else:
